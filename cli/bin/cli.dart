@@ -1,4 +1,3 @@
-import 'package:cli/cli.dart' as cli;
 
 const version = '0.0.1'; // Add this line
 
@@ -15,3 +14,4 @@ void printUsage() { // Add this new function
     "The following commands are valid: 'help', 'version', 'search <ARTICLE-TITLE>'"
   );
 }
+
