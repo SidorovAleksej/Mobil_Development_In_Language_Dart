@@ -14,6 +14,9 @@ void main(List<String> arguments) {
   }
 }
 
+void searchWikipedia(List<String>? arguments) { // Add this new function and add ? to arguments type
+  print('searchWikipedia received arguments: $arguments');
+}
 
 void printUsage() { // Add this new function
   print(
