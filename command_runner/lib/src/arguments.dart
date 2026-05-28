@@ -1,3 +1,7 @@
+import 'dart:collection'; // New import
+import '../command_runner.dart';
+
+
 enum OptionType { flag, option }
 
 abstract class Argument {
@@ -49,3 +53,27 @@ class Option extends Argument {
   }
 }
 
+abstract class Command extends Argument {
+  @override
+  String get name;
+
+  String get description;
+
+  bool get requiresArgument => false;
+
+  late CommandRunner runner;
+
+  @override
+  String? help;
+
+  @override
+  String? defaultValue;
+
+  @override
+  String? valueHelp;
+
+  final List<Option> _options = [];
+
+  UnmodifiableSetView<Option> get options =>
+      UnmodifiableSetView(_options.toSet());
+}
