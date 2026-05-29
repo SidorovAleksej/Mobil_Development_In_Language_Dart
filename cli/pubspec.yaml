@@ -1,7 +1,8 @@
 name: cli
 publish_to: none
-description: A sample command-line application.
-#version: 1.0.0
+description: Dartpedia CLI – command-line interface for Wikipedia search.
+version: 1.0.0
+resolution: workspace
 # repository: https://github.com/my_org/my_repo
 
 environment:
