@@ -17,7 +17,8 @@ class CommandRunner {
   }
 
   void addCommand(Command command) {
-    // TODO: обработать ошибку (имена команд не должны конфликтовать)
+// TODO: обработать ошибку (имена команд не должны конфликтовать)
+
     _commands[command.name] = command;
     command.runner = this;
   }
