@@ -47,4 +47,33 @@ enum ConsoleColor {
   final int r;
   final int g;
   final int b;
+
+  /// Изменяет цвет текста для всего будущего вывода (до сброса)
+  /// ```dart
+  /// print('hello'); // печатается цветом терминала по умолчанию
+  /// print(ConsoleColor.red.enableForeground);
+  /// print('hello'); // печатается красным цветом
+  /// ```
+  String get enableForeground => '$ansiEscapeLiteral[38;2;$r;$g;${b}m';
+
+  /// Изменяет цвет фона для всего будущего вывода (до сброса)
+  /// ```dart
+  /// print('hello'); // печатается цветом терминала по умолчанию
+  /// print(ConsoleColor.red.enableBackground);
+  /// print('hello'); // печатается с красным цветом фона
+  /// ```
+  String get enableBackground => '$ansiEscapeLiteral[48;2;$r;$g;${b}m';
+
+  /// Сбросить цвет текста и фона до настроек терминала по умолчанию
+  static String get reset => '$ansiEscapeLiteral[0m';
+
+  /// Устанавливает цвет текста для ввода
+  String applyForeground(String text) {
+    return '$ansiEscapeLiteral[38;2;$r;$g;${b}m$text$reset';
+  }
+
+  /// Устанавливает цвет фона, а затем сбрасывает изменение цвета
+  String applyBackground(String text) {
+    return '$ansiEscapeLiteral[48;2;$r;$g;${b}m$text$ansiEscapeLiteral[0m';
+  } 
 }
